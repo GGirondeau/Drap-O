@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,
+initial-scale=1.0"
+    />
+    <title>Quiz des Drapeaux</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <script>
+        document.getElementById('testBtn').addEventListener('click', function() {
+            localStorage.setItem('testKey', 'testValue');
+            alert('Valeur enregistrée : ' + localStorage.getItem('testKey'));
+        });
+    </script>
+    <div id="app">
+      <!-- Écran de connexion/inscription -->
+      <div id="auth-screen" class="screen">
+        <div class="auth-form">
+          <h2>Connexion</h2>
+          <input
+            type="text"
+            id="login-username"
+            placeholder="Nom
+d'utilisateur"
+          />
+          <input
+            type="password"
+            id="login-password"
+            placeholder="Mot de passe"
+          />
+          <button id="login-btn" type="button">Se connecter</button>
+          <p>
+            Pas encore de compte? <a href="#" id="show-register">S'inscrire</a>
+          </p>
+        </div>
+        <div class="auth-form" style="display: none">
+          <h2>Inscription</h2>
+          <input
+            type="text"
+            id="register-username"
+            placeholder="Nom d'utilisateur"
+          />
+          <input
+            type="password"
+            id="register-password"
+            placeholder="Mot de passe"
+          />
+          <button id="register-btn" type="button">S'inscrire</button>
+          <p>Déjà un compte? <a href="#" id="show-login">Se connecter</a></p>
+        </div>
+      </div>
+      <!-- Écran de jeu -->
+      <div id="game-screen" class="screen" style="display: none">
+        <div class="game-header">
+          <div class="timer">Temps: <span id="time">20</span>s</div>
+          <div class="score">Score: <span id="current-score">0</span>/10</div>
+        </div>
+        <div class="flag-container">
+          <img
+            id="flag-img"
+            src=""
+            alt="Drapeau du pays à
+deviner"
+          />
+        </div>
+        <div class="answer-form">
+          <input
+            type="text"
+            id="country-input"
+            placeholder="Nom
+du pays"
+          />
+          <button id="submit-answer">Valider</button>
+        </div>
+        <div id="feedback" class="feedback"></div>
+      </div>
+      <!-- Écran des résultats -->
+      <div id="results-screen" class="screen" style="display: none">
+        <h2>Résultats</h2>
+        <p>Votre score: <span id="final-score">0</span>/10</p>
+        <h3>Classement</h3>
+        <table id="leaderboard">
+          <thead>
+            <tr>
+              <th>Position</th>
+              <th>Joueur</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-body">
+            <!-- Les scores seront ajoutés ici dynamiquement -->
+          </tbody>
+        </table>
+        <button id="play-again">Rejouer</button>
+        <button id="logout-btn">Déconnexion</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
